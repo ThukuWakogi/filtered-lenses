@@ -1,1 +1,4 @@
 .vs
+virtual
+start.ps1
+*.pyc
