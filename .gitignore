@@ -3,3 +3,5 @@ virtual
 start.ps1
 *.pyc
 db.sqlite3
+migrations/
+.vscode
