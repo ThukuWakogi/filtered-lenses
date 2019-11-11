@@ -3,3 +3,41 @@
 .logo-font{
   font-family: 'Lobster', cursive;
 }
+
+.logo-font-size {
+  font-size: 30px;
+}
+
+body, html, .body, .hero {
+  height: 100%
+}
+
+body {
+  color: #000000;
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-image: url('/media/papers.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero > div > h1 {
+  font-size: 7.5rem;
+}
+
+.hero > div > h2 {
+  font-weight: lighter;
+}
+
+.hero > div {
+  text-align: center;
+  margin-bottom: 20px;
+}
