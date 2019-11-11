@@ -41,3 +41,11 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
+
+.cstm-nav-bg-white {
+  background-color: #FFFFFF;
+}
+
+nav {
+  transition: 250ms ease-in;
+}
