@@ -7,6 +7,10 @@ class Location(models.Model):
     location_name = models.CharField(max_length=30)
 
     def save_location(self): self.save()
+    
+    @classmethod
+    def get_all(cls): return cls.objects.all()
+
 
     def __str__(self): return f'{self.location_name}'
 
@@ -16,6 +20,9 @@ class Category(models.Model):
 
     def save_category(self):
         self.save()
+
+    @classmethod
+    def get_all(cls): return cls.objects.all()
 
     def __str__(self): return f'{self.category_name}'
 
@@ -31,5 +38,17 @@ class Image(models.Model):
 
     @classmethod
     def get_all(cls): return cls.objects.all()
+
+    @classmethod
+    def by_categories_and_location(cls, _location, _category):
+        return cls.objects.filter(categories__in=[_category], location=_location)
+
+    @classmethod
+    def by_category(cls, _category):
+        return cls.objects.filter(categories__in=[_category])
+
+    @classmethod
+    def by_location(cls, _location):
+        return cls.objects.filter(location=_location)
 
     def __str__(self): return f'{self.name}'

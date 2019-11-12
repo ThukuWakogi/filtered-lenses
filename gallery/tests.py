@@ -26,3 +26,28 @@ class ImageTestClass(TestCase):
 
 	def test_get_images(self): self.assertTrue(len(Image.get_all()), 1)
 
+
+class CategoryTestClass(TestCase):
+	def setUp(self):
+		self.test_category = Category(category_name='test category')
+		self.test_category.save_category()
+
+	def tearDown(self):
+		Category.objects.all().delete()
+
+	def test_get_categories(self):
+		Category.objects.create(category_name='test category 2')
+		self.assertTrue(len(Category.get_all()), 2)
+
+
+class LocationTestClass(TestCase):
+	def setUp(self):
+		self.test_location = Location(location_name='test location')
+		self.test_location.save_location()
+
+	def tearDown(self):
+		Location.objects.all().delete()
+
+	def test_get_locations(self):
+		Location.objects.create(location_name='test_location 2')
+		self.assertTrue(len(Location.get_all()), 2)
