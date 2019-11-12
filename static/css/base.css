@@ -89,3 +89,10 @@ nav {
 .cstm-content > .cstm-filter > form > p {
   margin: auto 8px;
 }
+
+.search-images img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin: 8px;
+}

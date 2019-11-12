@@ -6,10 +6,9 @@ from .models import Image, Category, Location
 
 
 def index(request):
-	print(request.GET)
-
 	if 'category' in request.GET and request.GET['category'] and 'location' in request.GET and request.GET['location']:
-		images = Image.by_categories_and_location(request.GET['category'], request.GET['location'])
+		images = Image.by_categories_and_location(
+			request.GET['category'], request.GET['location'])
 	elif 'category' in request.GET and request.GET['category']:
 		images = Image.by_category(request.GET['category'])
 	elif 'location' in request.GET and request.GET['location']:
@@ -19,12 +18,14 @@ def index(request):
 		categories = Category.get_all()
 		locations = Location.get_all()
 		pass
-	
+
 	categories = Category.get_all()
 	locations = Location.get_all()
 
-	print(request.GET['location'] if 'location' in request.GET and request.GET['location'] else None)
-	print(request.GET['category'] if 'category' in request.GET and request.GET['category'] else None)
+	print(request.GET['location']
+		  if 'location' in request.GET and request.GET['location'] else None)
+	print(request.GET['category']
+		  if 'category' in request.GET and request.GET['category'] else None)
 
 	return render(
 		request,
@@ -35,5 +36,20 @@ def index(request):
 			'locations': locations,
 			'selected_location': int(request.GET['location']) if 'location' in request.GET and request.GET['location'] else None,
 			'selected_category': int(request.GET['category']) if 'category' in request.GET and request.GET['category'] else None,
+		}
+	)
+
+
+def search(request):
+	if 'search' in request.GET and request.GET['search']:
+		images = Image.search_image(request.GET['search'])
+		print(images)
+
+	return render(
+		request,
+		'gallery/search.html',
+		{
+			'images': images if images else None,
+			'search_term': request.GET['search'] if 'search' in request.GET and request.GET['search'] else None
 		}
 	)

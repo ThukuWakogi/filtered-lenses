@@ -1,0 +1,19 @@
+{% extends 'gallery/base.html' %}
+
+{% block content %}
+  {{ block.super }}
+  <div class="container">
+    <div style="height: 70px;"></div>
+    <h3>results for '{{ search_term }}'</h3>
+    {% for image in images %}
+      <div class="row search-images">
+        <div class="col-md-4 col-sm-4 col-xs-4">
+          <img src="{{image.url.url}}" alt="image.name">
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+          <h3 class="cstm-lighter-text">{{ image.name }}</h3>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
