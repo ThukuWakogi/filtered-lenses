@@ -19,7 +19,7 @@ The source code for this application can be accessed.
 a copy of the source code can be gotten through:
 
 - downloading the zip from github.
-- opening a terminal in the preferred directory then entering `git clone https://github.com/ThukuWakogi/news-highlight.git`
+- opening a terminal in the preferred directory then entering `git clone https://github.com/ThukuWakogi/filtered-lenses.git`
 - using a git client such as [Github desktop](https://desktop.github.com/) or [GitKraken](https://www.gitkraken.com/)
 
 ### installing
