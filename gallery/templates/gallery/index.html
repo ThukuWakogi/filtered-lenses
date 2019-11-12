@@ -5,12 +5,25 @@
   <div class="hero">
     <div>
       <h1 class="logo-font">FL</h1>
-      <h2>Filtered Lenses</h2>
+      <h2 class="cstm-lighter-text">Filtered Lenses</h2>
     </div>
   </div>
-  <div class="container">
-    <div class="cstm-content">
-      <h1>haiya</h1>
-    </div>
+  <div class="container cstm-flex-column-align-justify-center" style="min-height: 40%;">
+    {% if images|length > 0 %}
+      <div class="cstm-content">
+        <div class="row justify-content-md-center">
+          {% for image in images %}
+            <div class="col-xs-auto col-sm-auto col-md-auto" style="margin: 0px auto;">
+              <img src="{{ image.url.url }}" alt="{{ image.name }}" class="img-fluid">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <div class="cstm-content">
+        <h1 class="cstm-lighter-text">Ooops! no images</h1>
+        <p>You can check out <a href="https://www.instagram.com/thukuwakogi/">@thukuwakogi</a> as you wait :)</p>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}
